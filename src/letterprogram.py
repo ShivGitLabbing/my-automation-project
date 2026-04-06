@@ -75,3 +75,4 @@ while True:
     else:
         print(f"No image for {info['name']}")
 
+
