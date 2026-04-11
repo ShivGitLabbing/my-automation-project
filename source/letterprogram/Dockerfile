@@ -1,18 +1,12 @@
-# Use an official lightweight Python image
-FROM python:3.11-slim
+FROM --platform=linux/amd64 python:3.11-slim
 
-# Set the working directory inside the container
-WORKDIR /code
+WORKDIR /app
 
-# Install dependencies first (better for caching)
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Add jinja2 to the install list
+RUN ["pip", "install", "fastapi", "uvicorn", "jinja2"]
 
-# Copy the rest of the application code
-COPY ./app /code/app
+COPY . .
 
-# Expose the port FastAPI runs on
 EXPOSE 8000
 
-# Command to run the application using Uvicorn
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
