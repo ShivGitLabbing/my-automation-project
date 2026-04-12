@@ -1,7 +1,7 @@
 [project]
 name = "letterprogram"
 version = "0.1.0"
-description = "Add your description here"
+description = "Interactive toddler learning web app with media-driven letter cards."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -9,6 +9,5 @@ dependencies = [
     "jinja2>=3.1.6",
     "pillow>=12.2.0",
     "playsound==1.2.2",
-    "uvicorn>=0.44.0",
-    "jinja2"
+    "uvicorn>=0.44.0"
 ]

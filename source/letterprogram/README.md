@@ -1,121 +1,127 @@
-# 👶 Toddler Learning App
+# 🌟 Toddler Learning Adventure
 
-A fun, interactive Python application designed to help toddlers learn letters and animal names through visual and auditory feedback.
+An interactive Python web application that teaches toddlers letters and animal names through bright visuals, playful sounds, and instant feedback.
 
-## 🚀 Features
+## ✨ New Feature: Media-Driven Letter Cards
 
-- **Letter Recognition**: Supports single-letter inputs or full animal names.
-- **Dynamic Media Detection**: Automatically scans the directory for .png, .jpg, and .mp3 files. No hard-coding required!
-- **Visual & Audio Feedback**: Displays an image of the animal while playing its corresponding sound effect.
-- **Modern Python Stack**: Built using uv for lightning-fast dependency management and Python 3.14.
-- **Web-Based Interface**: Interactive web app built with FastAPI and Jinja2 templates.
-- **Responsive Design**: Colorful, engaging UI optimized for touch interaction.
+This release introduces an automatic media discovery engine for the learning experience:
+- Auto-detects all `.mp3` files in `app/static/audio/`
+- Builds one learning card per animal name
+- Displays the animal image if a matching `.jpg` or `.png` file exists
+- Plays the animal sound on tap/click for fast reinforcement
 
-## 🛠️ Tech Stack
+## 🚀 What’s Included
 
-- **Language**: Python 3.14+
-- **Framework**: FastAPI
-- **Package Manager**: uv
-- **Libraries**:
-  - Pillow (Image processing)
-  - playsound (Cross-platform audio playback)
-  - pathlib (Object-oriented filesystem paths)
-  - Jinja2 (Templating)
-  - Uvicorn (ASGI server)
+- **Smart media discovery**: no hard-coded animal list required
+- **Dynamic letter cards**: first letter hero, animated card hover states, and touch-friendly design
+- **Responsive UI**: works smoothly on desktops, tablets, and phones
+- **FastAPI backend**: lightweight Python web service with Jinja2 templating
+- **Docker-ready**: easily deploy as a container
+
+## 🧩 Tech Stack
+
+- **Python**: 3.14+
+- **FastAPI**: backend web framework
+- **Jinja2**: server-side templates
+- **Uvicorn**: ASGI server
+- **Pillow**: image support
+- **playsound**: browser-triggered audio playback for desktop
 
 ## 📦 Installation
 
 ### Prerequisites
 - Python 3.14 or higher
-- uv package manager (install via `pip install uv`)
+- `uv` package manager: `pip install uv`
 
 ### Setup
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd letterprogram
+   git clone https://github.com/ShivGitLabbing/my-automation-project.git
+   cd source/letterprogram
    ```
 
-2. Install dependencies using uv:
+2. Install dependencies:
    ```bash
    uv sync
    ```
 
-## 🚀 Usage
+## ▶️ Run Locally
 
-### Running Locally
-1. Activate the virtual environment:
+1. Create and activate a virtual environment:
    ```bash
-   uv run python -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   python -m venv .venv
+   .venv\Scripts\activate
    ```
 
-2. Run the application:
+2. Start the app:
    ```bash
    uv run uvicorn app.main:app --reload
    ```
 
-3. Open your browser and navigate to `http://127.0.0.1:8000`
+3. Open `http://127.0.0.1:8000` in your browser.
 
-### Adding Media Files
-- Place animal images (`.jpg`, `.png`) in `app/static/images/`
-- Place animal sounds (`.mp3`) in `app/static/audio/`
-- The app automatically detects and creates interactive cards for each animal
+## 🐾 Add Your Own Animals
+
+To add new cards:
+- Add sound files to `app/static/audio/` using animal names, e.g. `lion.mp3`
+- Add matching images to `app/static/images/` using the same base name, e.g. `lion.jpg`
+- The interface updates automatically when the server restarts
 
 ## 🐳 Docker Deployment
 
-### Building the Image
+Build the image:
 ```bash
 docker build -t toddler-app .
 ```
 
-### Running the Container
+Run it:
 ```bash
 docker run -p 8000:8000 toddler-app
 ```
 
-Access the app at `http://localhost:8000`
+Then visit `http://localhost:8000`.
 
 ## 📁 Project Structure
 
 ```
 letterprogram/
 ├── app/
-│   ├── main.py              # FastAPI application
+│   ├── main.py
 │   ├── static/
-│   │   ├── audio/           # Animal sound files (.mp3)
-│   │   └── images/          # Animal images (.jpg, .png)
+│   │   ├── audio/
+│   │   └── images/
 │   └── templates/
-│       └── index.html       # Main web interface
-├── Dockerfile               # Docker configuration
-├── pyproject.toml           # Project dependencies and metadata
-├── README.md                # This file
-└── __init__.py              # Python package marker
+│       └── index.html
+├── Dockerfile
+├── README.md
+├── pyproject.toml
+├── __init__.py
+└── .dockerignore
 ```
 
-## 🎯 How It Works
+## 🔍 How It Works
 
-1. The app scans the `static/audio/` directory for `.mp3` files
-2. For each audio file, it creates an interactive card displaying:
-   - The first letter of the animal name (capitalized)
-   - The corresponding image from `static/images/`
-   - Plays the sound when the card is clicked
-3. The web interface uses responsive CSS for a touch-friendly experience
+1. The backend reads `app/static/audio/` for `.mp3` files.
+2. It builds a card for every audio file found.
+3. Each card shows:
+   - the first letter of the animal name
+   - the animal image if available
+   - a tap-to-play sound button
 
-## 🤝 Contributing
+## 🛠️ Notes
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Make your changes and test thoroughly
-4. Commit your changes: `git commit -am 'Add new feature'`
-5. Push to the branch: `git push origin feature-name`
-6. Submit a pull request
+- Missing images are handled gracefully by the UI.
+- New media files are automatically included without changing code.
+
+## 🤝 Contribution Guide
+
+1. Fork the repo
+2. Create a new branch: `git checkout -b feature/letterprogram-readme`
+3. Make your changes
+4. Commit: `git commit -am 'feat: improve README and Docker support for letterprogram'`
+5. Push: `git push origin feature/letterprogram-readme`
+6. Open a pull request
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- Built with ❤️ for educational purposes
-- Inspired by the joy of learning through play
+This project is licensed under the MIT License.
