@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/letterprogram/static/js/main.43ef464f.js",
-    "index.html": "/letterprogram/index.html",
-    "main.43ef464f.js.map": "/letterprogram/static/js/main.43ef464f.js.map"
+    "main.js": "/my-automation-project/static/js/main.43ef464f.js",
+    "index.html": "/my-automation-project/index.html",
+    "main.43ef464f.js.map": "/my-automation-project/static/js/main.43ef464f.js.map"
   },
   "entrypoints": [
     "static/js/main.43ef464f.js"
