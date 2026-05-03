@@ -1,0 +1,13 @@
+[project]
+name = "letterprogram"
+version = "0.1.0"
+description = "Interactive toddler learning web app with media-driven letter cards."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.135.3",
+    "jinja2>=3.1.6",
+    "pillow>=12.2.0",
+    "playsound==1.2.2",
+    "uvicorn>=0.44.0"
+]
